@@ -1,0 +1,560 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Jersey+15&display=swap');
+
+:root {
+  --ink: #111111;
+  --paper: #f3f0e7;
+  --paper-dark: #ded9cb;
+  --white: #fffef9;
+  --accent: #ff4f87;
+  --accent-2: #79f2c0;
+  --line: 2px solid var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Mono", monospace;
+  padding: 28px;
+}
+
+/* subtle paper/grid texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background-image:
+    linear-gradient(
+      rgba(17, 17, 17, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(17, 17, 17, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 24px 24px;
+}
+
+.container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  text-align: center;
+  border-top: 6px solid var(--ink);
+  border-bottom: var(--line);
+  padding: 28px 0 30px;
+  margin-bottom: 26px;
+}
+
+header h1 {
+  font-family: "Jersey 15", sans-serif;
+  font-size: clamp(4.5rem, 10vw, 7.5rem);
+  line-height: 0.85;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+header .eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr auto auto;
+
+  border: var(--line);
+  background: var(--white);
+
+  margin-bottom: 42px;
+}
+
+.input-group {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 18px;
+
+  border-right: var(--line);
+}
+
+.input-group label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+
+  margin-bottom: 11px;
+}
+
+.color-input {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 10px;
+}
+
+#colorPicker {
+  width: 54px;
+  height: 48px;
+
+  padding: 0;
+  border: var(--line);
+  background: none;
+
+  cursor: pointer;
+}
+
+#colorPicker::-webkit-color-swatch-wrapper {
+  padding: 3px;
+}
+
+#colorPicker::-webkit-color-swatch {
+  border: none;
+}
+
+#hexInput,
+#modeSelect {
+  width: 100%;
+  height: 48px;
+
+  border: var(--line);
+  border-radius: 0;
+
+  background: var(--paper);
+
+  padding: 0 12px;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  color: var(--ink);
+  outline: none;
+}
+
+#hexInput:focus,
+#modeSelect:focus {
+  background: var(--accent-2);
+}
+
+button {
+  border: 0;
+  border-radius: 0;
+
+  padding: 0 22px;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    background 100ms ease,
+    color 100ms ease,
+    transform 100ms ease;
+}
+
+#generateBtn {
+  background: var(--ink);
+  color: var(--paper);
+
+  border-right: var(--line);
+}
+
+#generateBtn:hover {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.secondary-btn {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.secondary-btn:hover {
+  background: var(--accent-2);
+}
+
+button:active {
+  transform: translate(2px, 2px);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.5;
+}
+
+/* =========================
+   RESULTS HEADER
+========================= */
+
+.results {
+  position: relative;
+}
+
+.results-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+
+  border-bottom: var(--line);
+  padding-bottom: 12px;
+}
+
+.results-header .eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+
+  margin-bottom: 5px;
+}
+
+.results-header h2 {
+  font-family: "Jersey 15", sans-serif;
+  font-size: 3.1rem;
+  font-weight: 400;
+  line-height: 0.9;
+
+  text-transform: uppercase;
+}
+
+#currentMode {
+  display: inline-block;
+
+  border: var(--line);
+
+  background: var(--accent-2);
+
+  padding: 7px 12px;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+#status {
+  min-height: 45px;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: var(--line);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* =========================
+   PALETTE
+========================= */
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  border-left: var(--line);
+  border-bottom: var(--line);
+
+  min-height: 420px;
+}
+
+.color-card {
+  position: relative;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  border-right: var(--line);
+
+  background: var(--white);
+
+  cursor: pointer;
+
+  transition:
+    flex 180ms ease,
+    transform 120ms ease;
+}
+
+.color-card::before {
+  content: "+";
+
+  position: absolute;
+  z-index: 3;
+
+  top: 8px;
+  right: 10px;
+
+  width: 23px;
+  height: 23px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--white);
+  border: 1px solid var(--ink);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.color-preview {
+  flex: 1;
+  min-height: 330px;
+
+  border-bottom: var(--line);
+}
+
+.color-info {
+  min-height: 88px;
+
+  background: var(--white);
+
+  padding: 13px 12px 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.color-info p {
+  font-family: "Jersey 15", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1;
+
+  letter-spacing: 0.03em;
+}
+
+.color-info small {
+  font-size: 0.62rem;
+  line-height: 1.3;
+
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+
+  opacity: 0.65;
+}
+
+/* Gives each block a tactile offset effect */
+.color-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 6px 8px 0 var(--ink);
+  z-index: 5;
+}
+
+.color-card:hover .color-info {
+  background: var(--accent-2);
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+  grid-column: 1 / -1;
+
+  padding: 30px;
+
+  border-right: var(--line);
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      var(--paper),
+      var(--paper) 10px,
+      #ffdddd 10px,
+      #ffdddd 20px
+    );
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  margin-top: 18px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 0.65rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  opacity: 0.65;
+}
+
+footer::after {
+  content: "PL-01 / 2026";
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  body {
+    padding: 20px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .input-group:nth-child(2) {
+    border-right: 0;
+  }
+
+  #generateBtn,
+  .secondary-btn {
+    min-height: 62px;
+    border-top: var(--line);
+  }
+
+  #generateBtn {
+    border-right: var(--line);
+  }
+
+  .palette {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .color-card {
+    border-bottom: var(--line);
+  }
+
+  .color-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 580px) {
+
+  body {
+    padding: 14px;
+  }
+
+  header {
+    display: block;
+    padding-top: 38px;
+  }
+
+  header h1 {
+    font-size: 4.3rem;
+    margin-bottom: 18px;
+  }
+
+
+  .controls {
+    display: block;
+  }
+
+  .input-group {
+    border-right: 0;
+    border-bottom: var(--line);
+  }
+
+  #generateBtn,
+  .secondary-btn {
+    width: 100%;
+    height: 60px;
+
+    border-right: 0;
+    border-top: 0;
+    border-bottom: var(--line);
+  }
+
+  .secondary-btn {
+    border-bottom: 0;
+  }
+
+  .results-header {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  #currentMode {
+    width: fit-content;
+  }
+
+  .palette {
+    grid-template-columns: 1fr;
+  }
+
+  .color-card {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+
+    min-height: 150px;
+  }
+
+  .color-preview {
+    min-height: 150px;
+    border-bottom: 0;
+    border-right: var(--line);
+  }
+
+  .color-info {
+    min-height: 150px;
+  }
+
+  .color-card:last-child {
+    grid-column: auto;
+  }
+
+  .color-card:hover {
+    transform: translateX(5px);
+    box-shadow: none;
+  }
+}

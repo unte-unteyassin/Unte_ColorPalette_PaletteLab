@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Palette Lab</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <main class="container">
+
+   <header>
+  <h1>Palette Lab</h1>
+  <p class="eyebrow">Color Palette Generator</p>
+</header>
+
+    <section class="controls">
+
+      <div class="input-group">
+
+        <label for="colorPicker">Base Color</label>
+
+        <div class="color-input">
+
+          <input
+            type="color"
+            id="colorPicker"
+            value="#6750A4"
+          >
+
+          <input
+            type="text"
+            id="hexInput"
+            value="#6750A4"
+            maxlength="7"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label for="modeSelect">Palette Style</label>
+
+        <select id="modeSelect">
+
+          <option value="monochrome">
+            Monochrome
+          </option>
+
+          <option value="monochrome-dark">
+            Monochrome Dark
+          </option>
+
+          <option value="monochrome-light">
+            Monochrome Light
+          </option>
+
+          <option value="analogic" selected>
+            Analogic
+          </option>
+
+          <option value="complement">
+            Complement
+          </option>
+
+          <option value="analogic-complement">
+            Analogic Complement
+          </option>
+
+          <option value="triad">
+            Triad
+          </option>
+
+          <option value="quad">
+            Quad
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <button id="generateBtn">
+        Generate Palette
+      </button>
+
+      <button id="randomBtn" class="secondary-btn">
+        Random Color
+      </button>
+
+    </section>
+
+
+    <section class="results">
+
+      <div class="results-header">
+
+        <div>
+          <p class="eyebrow">GENERATED COLORS</p>
+          <h2>Your Palette</h2>
+        </div>
+
+        <span id="currentMode">
+          Analogic
+        </span>
+
+      </div>
+
+
+      <p id="status">
+        Choose a color and generate a palette.
+      </p>
+
+
+      <div
+        id="palette"
+        class="palette"
+      >
+      </div>
+
+    </section>
+
+
+    <footer>
+
+      <p>
+        Powered by The Color API
+      </p>
+
+    </footer>
+
+  </main>
+
+
+  <script src="scriptjs.js"></script>
+
+</body>
+
+</html>
