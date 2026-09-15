@@ -34,8 +34,6 @@ colorPicker.addEventListener(
   }
 );
 
-
-// Sync HEX input with color picker
 hexInput.addEventListener(
   "input",
   () => {
@@ -55,15 +53,12 @@ hexInput.addEventListener(
   }
 );
 
-
-// Generate button
 generateBtn.addEventListener(
   "click",
   generatePalette
 );
 
 
-// Random color button
 randomBtn.addEventListener(
   "click",
   () => {
@@ -89,7 +84,6 @@ randomBtn.addEventListener(
 );
 
 
-// Press Enter inside HEX box
 hexInput.addEventListener(
   "keydown",
   event => {
@@ -104,7 +98,6 @@ hexInput.addEventListener(
 );
 
 
-// Main API function
 async function generatePalette() {
 
   let hex =
@@ -113,8 +106,6 @@ async function generatePalette() {
   const mode =
     modeSelect.value;
 
-
-  // Validate HEX
   if (
     !/^#[0-9A-Fa-f]{6}$/.test(hex)
   ) {
@@ -169,7 +160,6 @@ async function generatePalette() {
       await response.json();
 
 
-    // Empty state
     if (
       !data.colors ||
       data.colors.length === 0
@@ -230,8 +220,6 @@ async function generatePalette() {
 
 }
 
-
-// Display colors returned by API
 function displayPalette(colors) {
 
   palette.innerHTML = "";
@@ -302,7 +290,6 @@ function displayPalette(colors) {
 }
 
 
-// Copy HEX to clipboard
 async function copyColor(hexValue) {
 
   try {
@@ -338,5 +325,4 @@ async function copyColor(hexValue) {
 }
 
 
-// Initial palette
 generatePalette();

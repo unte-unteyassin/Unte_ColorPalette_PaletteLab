@@ -55,10 +55,6 @@ body::before {
   margin: 0 auto;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 header {
   text-align: center;
   border-bottom: var(--line);
