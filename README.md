@@ -56,7 +56,11 @@ No API key or secret credentials are stored in this repository.
 
 1. Clone or download this repository
 2. Open the project folder
+<<<<<<< HEAD
 3. Open `index.html` in a browser or run it on a live server extenson in VSC (Visual Studio Code)
+=======
+3. Open `index.html` in a browser or run it on a live server extenson in VSC
+>>>>>>> 96fdb69 (update on html n css)
 
 ## Technologies used
 
@@ -64,4 +68,8 @@ No API key or secret credentials are stored in this repository.
 - CSS
 - JavaScript
 - Fetch API
+<<<<<<< HEAD
 - The Color APIw
+=======
+- The Color APIw
+>>>>>>> 96fdb69 (update on html n css)

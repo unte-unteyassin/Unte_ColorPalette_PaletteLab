@@ -29,7 +29,6 @@ body {
   padding: 28px;
 }
 
-/* subtle paper/grid texture */
 body::before {
   content: "";
   position: fixed;
@@ -62,7 +61,6 @@ body::before {
 
 header {
   text-align: center;
-  border-top: 6px solid var(--ink);
   border-bottom: var(--line);
   padding: 28px 0 30px;
   margin-bottom: 26px;
@@ -85,10 +83,6 @@ header .eyebrow {
   text-transform: uppercase;
   margin: 0;
 }
-
-/* =========================
-   CONTROLS
-========================= */
 
 .controls {
   display: grid;
@@ -221,9 +215,6 @@ button:disabled {
   opacity: 0.5;
 }
 
-/* =========================
-   RESULTS HEADER
-========================= */
 
 .results {
   position: relative;
@@ -286,9 +277,6 @@ button:disabled {
   letter-spacing: 0.06em;
 }
 
-/* =========================
-   PALETTE
-========================= */
 
 .palette {
   display: grid;
@@ -378,7 +366,6 @@ button:disabled {
   opacity: 0.65;
 }
 
-/* Gives each block a tactile offset effect */
 .color-card:hover {
   transform: translateY(-8px);
   box-shadow: 6px 8px 0 var(--ink);
@@ -389,9 +376,6 @@ button:disabled {
   background: var(--accent-2);
 }
 
-/* =========================
-   ERROR
-========================= */
 
 .error {
   grid-column: 1 / -1;
@@ -415,32 +399,6 @@ button:disabled {
   text-transform: uppercase;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  margin-top: 18px;
-
-  display: flex;
-  justify-content: space-between;
-
-  font-size: 0.65rem;
-  font-weight: 600;
-
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-
-  opacity: 0.65;
-}
-
-footer::after {
-  content: "PL-01 / 2026";
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media (max-width: 900px) {
 
