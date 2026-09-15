@@ -1,12 +1,11 @@
-# Palette Lab
+# Palette lab
 
-Palette Lab is a web application that generates color palettes based on a user-selected base color
-
-This project was created for the Free API Niche Challenge - Lab Activity (ITCC 14 A)
+Palette Lab is a web app that generates color palettes based on a user-selected base color
+This project was created for ITCC 14 A Free API Niche Challenge - Lab Activity
 
 ## Niche
 
-Color Palettes
+Color palettes
 
 ## API Used
 
@@ -20,7 +19,7 @@ https://www.thecolorapi.com/docs
 
 The application uses the `/scheme` GET endpoint to generate color schemes based on a hexadecimal color value
 
-Example request:
+Ex. request:
 
 https://www.thecolorapi.com/scheme?hex=6750A4&mode=analogic&count=5
 
@@ -38,7 +37,7 @@ https://www.thecolorapi.com/scheme?hex=6750A4&mode=analogic&count=5
 - Error handling
 - Responsive layout for desktop and mobile
 
-## Palette Modes
+## Palette modes
 
 - Monochrome
 - Monochrome Dark
@@ -49,28 +48,20 @@ https://www.thecolorapi.com/scheme?hex=6750A4&mode=analogic&count=5
 - Triad
 - Quad
 
-## API Key
+## API key
 
-The Color API does not require an API key
+No API key or secret credentials are stored in this repository.
 
-No API key or secret credentials are stored in this repository
-
-## How to Run Locally
+## How to run locally
 
 1. Clone or download this repository
 2. Open the project folder
-3. Open `index.html` in a browser
+3. Open `index.html` in a browser or run it on a live server extenson in VSC
 
-For development, the project can also be opened using the Live Server extension in Visual Studio Code
-
-## Technologies Used
+## Technologies used
 
 - HTML
 - CSS
 - JavaScript
 - Fetch API
-- The Color API
-
-## Author
-
-Yassin Lomangco Unte
+- The Color APIw
